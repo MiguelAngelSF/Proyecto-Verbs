@@ -28,7 +28,17 @@ const verbs = [
   'Give',
   'Say',
   'Swim',
-  'Wake'
+  'Wake',
+  'Bake',
+  'Check',
+  'Cry',
+  'Defend',
+  'Destroy',
+  'Forecast',
+  'Imagine',
+  'Laugh',
+  'Memorize',
+  'Plant'
 ];
   
 const verbos = [
@@ -61,5 +71,15 @@ const verbos = [
   'Dar',
   'Decir',
   'Nadar',
-  'Despertarse'
+  'Despertarse',
+  'Hornear',
+  'Comprobar',
+  'Llorar',
+  'Defender',
+  'Destruir',
+  'Pronosticar',
+  'Imaginar',
+  'Reir',
+  'Memorizar',
+  'Plantar'
 ];
