@@ -2,6 +2,8 @@
 const showVerb = document.getElementById("showVerb");
 const showImage = document.getElementById("showImage");
 const showAudio = document.getElementById("showAudio");
+const titlePlay = document.getElementById("titlePlay");
+const puntuation = document.getElementById("puntuation");
 
 ///////////////CONSTANTES PARA OBTENER LOS ELEMENTOS DE LAS CASILLAS DE RESPUESTAS
 const first = document.getElementById("first-verb");
@@ -10,7 +12,7 @@ const third = document.getElementById("third-verb");
 const fourth = document.getElementById("fourth-verb");
 
 ///////////////CONSTANTES PARA EL CONTADOR, BOTON Y CONTENEDOR
-const next = document.getElementById("next");
+const start = document.getElementById("next");
 const verbsCounter = document.getElementById("verbs-counter");
 const allRightCounter = document.getElementById("all-right-answers");
 const verbsContainer = document.getElementById("verbs-container");
@@ -24,9 +26,10 @@ let rightAnswer;
 let rightAnswersCounter = 0; ////CONTADOR DE RESPUESTAS CORRECTAS
 
 ///////////////BOTON DE PLAY PARA COMENZAR
-next.addEventListener("click", function(){
+start.addEventListener("click", function(){
     ponerVerbo();
-    next.style.display = 'none';
+    start.style.display = 'none';
+    titlePlay.style.display = 'none';
 }); 
 
 makeRandomList(); ////LISTA RANDOM
@@ -97,7 +100,7 @@ function isItRight_(answer){
 
 ///////////////////FUNCION PARA MOSTRAR RESPUESTAS INCORRECTAS EN LOS BOTONES
 function randomVerbo(notThisOne){
-  theOne = Math.floor(Math.random()*verbos.length);
+  theOne = Math.floor(Math.random()*verbs.length);
   return theOne == notThisOne?randomVerbo(notThisOne):theOne;
 }
 
@@ -106,13 +109,13 @@ function ponerVerbo() {
 
   let randomPosition = everyNumberOfVerbs[lastPosition];
   let imgText = "<img src='img/"+verbs[randomPosition]+".jpg'"; 
-  imgText += "height:'240px' width='200px'>";
+  imgText += "height:'340px' width='300px'>";
 
 
-  first.classList.add("btn","btn-outline-primary","btn-md");
-  second.classList.add("btn","btn-outline-primary","btn-md");
-  third.classList.add("btn","btn-outline-primary","btn-md");
-  fourth.classList.add("btn","btn-outline-primary","btn-md");
+  first.classList.add("btn","btn-primary","btn-md");
+  second.classList.add("btn","btn-primary","btn-md");
+  third.classList.add("btn","btn-primary","btn-md");
+  fourth.classList.add("btn","btn-primary","btn-md");
 
   if (lastPosition >= 0){
     var just_position = lastPosition+1;
@@ -133,9 +136,11 @@ function ponerVerbo() {
     lastPosition = lastPosition - 1;
   }else{
     verbsCounter.innerHTML = "0 / " + numberOfVerbs;
-    allRightCounter.innerHTML = "Right answers: " + rightAnswersCounter;
-    showVerb.innerHTML = "Thank you !";
+    allRightCounter.innerHTML = "";
+    puntuation.innerHTML = "Right answers: " + rightAnswersCounter;
+    showVerb.innerHTML = "Congratulations, your score is";
     verbsContainer.innerHTML = ""; 
+    showImage.innerHTML = "";
   }
 }
 
